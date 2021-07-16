@@ -16,9 +16,9 @@ def make_move(move, player):
             or move[1] not in '123' \
             or player not in 'XO' \
             or field[keys[move[0]]][int(move[1]) - 1] != '-':
-        return 'Invalid Move'
+        return False
     field[keys[move[0]]][int(move[1]) - 1] = player
-    return 0
+    return True
 
 
 def player_move(current_player):
@@ -28,7 +28,7 @@ def player_move(current_player):
     print(f"Input cell address in 'a1' format:")
     while True:
         move = input()
-        if not make_move(move, current_player):
+        if make_move(move, current_player):
             break
         print('Invalid move, try again')
     return 0
@@ -36,7 +36,16 @@ def player_move(current_player):
 
 def check_victory(current_player):
     """This function checks if current player won the game."""
-    pass
+    for i in range(3):
+        if field[i][0] == current_player and field[i][1] == current_player and field[i][2] == current_player:
+            return True
+        if field[0][i] == current_player and field[1][i] == current_player and field[2][i] == current_player:
+            return True
+    if field[0][0] == current_player and field[1][1] == current_player and field[2][2] == current_player:
+        return True
+    if field[0][2] == current_player and field[1][1] == current_player and field[2][0] == current_player:
+        return True
+    return False
 
 
 if __name__ == '__main__':
@@ -46,5 +55,7 @@ if __name__ == '__main__':
     while True:
         player_move(current_player)
         if check_victory(current_player):
+            print(f'Congratulations! Player {current_player} is a winner!')
+            print_field()
             break
         current_player = 'O' if current_player == 'X' else 'X'
