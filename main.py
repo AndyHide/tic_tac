@@ -18,3 +18,22 @@ def make_move(move, player):
         return 'Invalid Move'
     field[keys[move[0]]][int(move[1])-1] = player
     return 0
+
+
+def player_move(current_player):
+    pass
+
+
+def check_victory(current_player):
+    pass
+
+
+if __name__ == '__main__':
+    current_player = 'X'
+
+    print('Lets play Tic Tac Toe!')
+    while True:
+        player_move(current_player)
+        if check_victory(current_player):
+            break
+        current_player = 'O' if current_player == 'X' else current_player = 'X'
