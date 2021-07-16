@@ -10,6 +10,7 @@ def print_field():
 
 
 def make_move(move, player):
+    """This function checks if move is valid and applies it to the field."""
     if len(move) != 2 \
             or move[0] not in 'abc' \
             or move[1] not in '123' \
@@ -21,6 +22,7 @@ def make_move(move, player):
 
 
 def player_move(current_player):
+    """This function draws field, then asks player to input his move. Then it passes result to make_move function."""
     print_field()
     print(f"""Now {current_player}'s turn""")
     print(f"Input cell address in 'a1' format:")
@@ -33,6 +35,7 @@ def player_move(current_player):
 
 
 def check_victory(current_player):
+    """This function checks if current player won the game."""
     pass
 
 
