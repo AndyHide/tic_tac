@@ -24,7 +24,7 @@ def make_move(move, player):
 def player_move(current_player):
     """This function draws field, then asks player to input his move. Then it passes result to make_move function."""
     print_field()
-    print(f"""Now {current_player}'s turn""")
+    print(f"""It is {current_player}'s turn now""")
     print(f"Input cell address in 'a1' format:")
     while True:
         move = input()
